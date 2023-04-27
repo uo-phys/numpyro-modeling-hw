@@ -1,7 +1,14 @@
-# GitHub Codespaces ♥️ Jupyter Notebooks
+# Modeling w/ NumPyro
 
-Welcome to your shiny new codespace! We've got everything fired up and running for you to explore Python and Jupyter notebooks.
+1. Use `NumPyro` to define a model containing a single random variable that follows a [Gamma](https://en.wikipedia.org/wiki/Gamma_distribution) [distribution](https://num.pyro.ai/en/stable/distributions.html#gamma) with shape parameters $\alpha=5,\:\beta=0.1$.  First draw samples directly from the distribution and plot the histogram and/or KDE.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with what you're seeing right now - where you go from here is up to you!
+1. Using the samples you've drawn, compute the mean and variance of the random variable. Modify the shape parameters individually to see how each of them affect the mean and variance of the distribution.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+1. The Gamma distribution doesn't have support for negative values, making it a useful prior distribution for parameters that must be positive. Use `NumPyro` to conduct an MCMC sampling of our linear regression model with outliers from class, but replace the half-normal priors for standard deviation parameters with sensible gamma distributions (i.e., not dramatically different in scale from the half-normal distributions previously used). Does the change in prior distribution meaningfully change the posterior distributions?
+
+## 510 students
+Repeat the Gaia linear regression analysis from the 510 portion of last week's homework, this time using `NumPyro`.
+
+1. How do your results compare?
+1. How about the efficiency of sampling?
+1. Use the posterior predictive framework in `NumPyro` to simulate a new Gaia catalog from your model and posterior estimate.  How does it compare to the observed data?  How might we improve our model?
